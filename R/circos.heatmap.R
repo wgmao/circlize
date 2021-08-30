@@ -330,7 +330,7 @@ circos.heatmap = function(mat, split = NULL, col, na.col = "grey",
 	dend.side = c("none", "outside", "inside"), dend.track.height = 0.1,
 	rownames.side = c("none", "outside", "inside"), rownames.cex = 0.5,
 	rownames.font = par("font"), rownames.col = "black", 
-	show.sector.labels = FALSE, cell_width = rep(1, nrow(mat)), ...) {
+	show.sector.labels = FALSE, sector.labels.cex = 0.8,cell_width = rep(1, nrow(mat)), ...) {
 
 	if(!is.matrix(mat)) {
 		if(is.vector(mat) && is.atomic(mat)) {
@@ -537,7 +537,7 @@ circos.heatmap = function(mat, split = NULL, col, na.col = "grey",
 	if(show.sector.labels) {
 		circos.track(track.index = 1, panel.fun = function(x, y) {
 			circos.text(CELL_META$xcenter, CELL_META$cell.ylim[2] + convert_y(2, "mm"), 
-				CELL_META$sector.index, facing = "bending.inside", cex = 0.8,
+				CELL_META$sector.index, facing = "bending.inside", cex =  sector.labels.cex,
 				adj = c(0.5, 0), niceFacing = TRUE)
 		}, bg.border = NA)
 	}
